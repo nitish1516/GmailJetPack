@@ -4,11 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.gmailjetpack.components.HomeAppBar
@@ -33,12 +31,29 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun GmailApp() {
+
+    val scaffoldState= rememberScaffoldState()
+    val scope = rememberCoroutineScope()
     /**
      * A scaffold is a layout that provides a lot of Material Design like AppBar
      * If we hover over Scaffold we will be able to see different options
      * */
-    Scaffold(topBar = { HomeAppBar() }) {
-        
+
+
+    Scaffold(
+        /**
+         * It will only show drawer if we pass scaffoldState here
+         */
+        scaffoldState=scaffoldState,
+        topBar = { HomeAppBar(scaffoldState,scope ) },
+        /**
+         * So now we are going to add drawer Content here by using drawerContent
+         */
+    drawerContent = {
+
+    }) {
+
+
     }
 }
 
