@@ -50,8 +50,7 @@ fun HomeAppBar(scaffoldState: ScaffoldState,scope:CoroutineScope )
                     Icon(Icons.Default.Menu,contentDescription = "Menu")
                 }
 
-                Text(text = "Search in Email",
-                modifier=Modifier.weight(2.0f))
+                Text(text = "Search in Email", modifier=Modifier.weight(2.0f))
                 Image(painter = painterResource(id = R.drawable.profile_image)
                     , contentDescription = "Profile",
                 modifier = Modifier
